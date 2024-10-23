@@ -1,24 +1,14 @@
-# README
+# Slow Blog
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## これはなに
 
-Things you may want to cover:
+Active Recordのパフォーマンスを改善するためのお題となるアプリケーションです。このブログアプリケーションはパフォーマンス的に問題のあるクエリを発行しています。すべて見つけてパフォーマンスを向上させてください。
 
-* Ruby version
+## セットアップ
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```sh
+git clone
+cd slow_blog
+bin/setup
+bin/dev
+```

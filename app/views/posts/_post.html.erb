@@ -1,12 +1,6 @@
 <div id="<%= dom_id post %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
-    <%= post.title %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Body:</strong>
-    <%= post.body %>
-  </p>
-
+  <div class="p-4 my-4">
+    <h2 class="font-bold text-xl"><%= link_to post.title, post %></h2>
+    <p><%= post.body %></p>
+  </div>
 </div>
