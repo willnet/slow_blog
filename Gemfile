@@ -33,4 +33,4 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "faker", "~> 3.4"
+gem "ya_lorem_ja"

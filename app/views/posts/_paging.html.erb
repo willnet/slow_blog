@@ -1,0 +1,9 @@
+<%# locals: (page:) %>
+<div>
+  <% if page.prev_page %>
+    <%= link_to "Prev Page", root_path(page: page.prev_page) %>
+  <% end %>
+  <% if page.next_page %>
+    <%= link_to "Next Page", root_path(page: page.next_page) %>
+  <% end %>
+</div>

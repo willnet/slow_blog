@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   root to: "welcome#index"
+  resources :users, only: %i[] do
+    resources :posts, only: %i[index]
+  end
+
   resources :posts
   resources :comments
   resource :session
