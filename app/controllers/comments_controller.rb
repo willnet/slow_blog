@@ -1,58 +1,45 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[ show edit update destroy ]
-
-  # GET /comments
-  def index
-    @comments = Comment.all
-  end
-
-  # GET /comments/1
-  def show
-  end
-
-  # GET /comments/new
   def new
-    @comment = Comment.new
+    @post = Post.find(params[:post_id])
+    @comment = @posts.comments.find(params.expect(:id))
   end
 
-  # GET /comments/1/edit
   def edit
+    @post = Post.find(params[:post_id])
+    @comment = Current.user.comments.find(params.expect(:id))
   end
 
-  # POST /comments
   def create
-    @comment = Comment.new(comment_params)
+    @post = Post.find(params[:post_id])
+    @comment = Current.user.comments.build(comment_params.merge(post_id: @post.id))
 
     if @comment.save
-      redirect_to @comment, notice: "Comment was successfully created."
+      redirect_to @post, notice: "Comment was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /comments/1
   def update
+    @post = Post.find(params[:post_id])
+    @comment = Current.user.comments.find(params[:id])
     if @comment.update(comment_params)
-      redirect_to @comment, notice: "Comment was successfully updated.", status: :see_other
+      redirect_to @post, notice: "Comment was successfully updated.", status: :see_other
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
-  # DELETE /comments/1
   def destroy
-    @comment.destroy!
-    redirect_to comments_path, notice: "Comment was successfully destroyed.", status: :see_other
+    post = Post.find(params[:post_id])
+    comment = Current.user.comments.find(params[:id])
+    comment.destroy!
+    redirect_to post, notice: "Comment was successfully destroyed.", status: :see_other
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_comment
-      @comment = Comment.find(params.expect(:id))
-    end
 
-    # Only allow a list of trusted parameters through.
-    def comment_params
-      params.expect(comment: [ :post_id, :body ])
-    end
+  def comment_params
+    params.expect(comment: [ :body ])
+  end
 end

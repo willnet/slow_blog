@@ -22,5 +22,8 @@
     <% @post.comments.each do |comment| %>
       <%= render comment %>
     <% end %>
+    <hr class="my-5">
+    New Comment
+    <%= render "comments/form", post: @post, comment: Comment.new %>
   </div>
 </div>
