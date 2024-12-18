@@ -1,9 +1,4 @@
 class CommentsController < ApplicationController
-  def new
-    @post = Post.find(params[:post_id])
-    @comment = @posts.comments.find(params.expect(:id))
-  end
-
   def edit
     @post = Post.find(params[:post_id])
     @comment = Current.user.comments.find(params.expect(:id))
@@ -16,7 +11,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @post, notice: "Comment was successfully created."
     else
-      render :new, status: :unprocessable_entity
+      redirect_to @post, notice: "Comment wasn't successfully created."
     end
   end
 

@@ -1,29 +1,24 @@
-<h2 class="font-bold">
-  <%= link_to "#{@post.user.name}'s blog", user_posts_path(@post.user) %>
-</h2>
-<div class="mx-auto md:w-2/3 w-full flex">
-  <div class="mx-auto">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-    <% end %>
+<h2><%= link_to "#{@post.user.name}'s blog", user_posts_path(@post.user) %></h2>
 
-    <%= render @post %>
+<% if notice.present? %>
+  <p class="notice"><%= notice %></p>
+<% end %>
+<section>
+  <%= render @post %>
+  <% if @post.created_by?(Current.user) %>
+    <%= link_to "Edit this post", edit_post_path(@post), class: "button" %>
+  <% end %>
+  <% if @post.created_by?(Current.user) %>
+    <%= button_to "Destroy this post", @post, method: :delete, class: "button" %>
+  <% end %>
+</section>
+<section>
+  <h3>Comments</h3>
+  <% @post.comments.each do |comment| %>
+    <%= render comment %>
+  <% end %>
+</section>
+<h3>New Comment</h3>
+<%= render "comments/form", post: @post, comment: Comment.new %>
 
-    <% if @post.created_by?(Current.user) %>
-      <%= link_to "Edit this post", edit_post_path(@post), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <% end %>
-    <% if @post.created_by?(Current.user) %>
-      <div class="inline-block ml-2">
-        <%= button_to "Destroy this post", @post, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
-      </div>
-    <% end %>
-    <hr class="my-5">
-    Comments
-    <% @post.comments.each do |comment| %>
-      <%= render comment %>
-    <% end %>
-    <hr class="my-5">
-    New Comment
-    <%= render "comments/form", post: @post, comment: Comment.new %>
-  </div>
-</div>
+

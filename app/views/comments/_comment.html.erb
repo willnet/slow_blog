@@ -1,11 +1,12 @@
 <%= turbo_frame_tag comment do %>
-  <p class="my-5">
+  <article>
     <%= comment.body %>
+    <hr>
     <%= time_ago_in_words(comment.created_at) %> ago
     by <%= comment.user.name %>
     <% if comment.created_by?(Current.user) %>
-      <%= link_to "Edit", edit_post_comment_path(comment.post, comment) %>
+      <%= link_to "Edit", edit_post_comment_path(comment.post, comment), class: 'button' %>
       <%= button_to "Destroy", [comment.post, comment], method: :delete, data: { turbo_confirm: "Are you sure?" } %>
     <% end %>
-  </p>
+  </article>
 <% end %>

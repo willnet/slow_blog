@@ -1,18 +1,16 @@
-<div class="w-full">
-  <% title = "#{@posts.first.user.name}'s blog" %>
-  <% content_for :title, title %>
+<% title = "#{@posts.first.user.name}'s blog" %>
+<% content_for :title, title %>
 
-  <h2 class="font-bold">
-    <%= link_to title, user_posts_path(@posts.first.user) %>
-  </h2>
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-  <% end %>
+<h2 class="font-bold">
+  <%= link_to title, user_posts_path(@posts.first.user) %>
+</h2>
+<% if notice.present? %>
+  <p class="notice"><%= notice %></p>
+<% end %>
+<% @posts.each do |post| %>
+  <section>
+    <%= render post %>
+  </section>
+<% end %>
+<%= render 'posts/paging', page: @page %>
 
-  <div id="posts" class="min-w-full">
-    <% @posts.each do |post| %>
-      <%= render post %>
-    <% end %>
-  </div>
-  <%= render 'posts/paging', page: @page %>
-</div>

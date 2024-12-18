@@ -1,12 +1,12 @@
 <div>
   <h2 class="font-bold">DashBoard</h2>
   <% @posts.each do |post| %>
-    <div class="border border-gray-200 p-4 my-4">
-      <h2 class="font-bold text-xl"><%= link_to post.title, post %></h2>
-      <p><%= post.body %></p>
-      <p>comment: <%= post.comments.count %></p>
-      <%= render post.comments %>
-    </div>
+    <section>
+        <%= render post %>
+        <p>comment: <%= post.comments.count %></p>
+        <%= render post.comments %>
+    </section>
   <% end %>
+
   <%= render 'posts/paging', page: @page %>
 </div>
