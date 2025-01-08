@@ -1,5 +1,4 @@
 class Page
-
   def initialize(params:, relation:)
     @params = params
     @relation = relation
