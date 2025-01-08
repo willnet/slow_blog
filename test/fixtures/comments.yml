@@ -3,7 +3,8 @@
 one:
   post: one
   body: MyText
-
+  user: willnet
 two:
   post: two
   body: MyText
+  user: maeshima
