@@ -1,15 +1,15 @@
 <h2><%= link_to "#{@post.user.name}'s blog", user_posts_path(@post.user) %></h2>
 
 <% if notice.present? %>
-  <p class="notice"><%= notice %></p>
+  <p><%= notice %></p>
 <% end %>
 <section>
   <%= render @post %>
   <% if @post.created_by?(Current.user) %>
-    <%= link_to "Edit this post", edit_post_path(@post), class: "button" %>
+    <%= link_to "Edit this post", edit_post_path(@post) %>
   <% end %>
   <% if @post.created_by?(Current.user) %>
-    <%= button_to "Destroy this post", @post, method: :delete, class: "button" %>
+    <%= button_to "Destroy this post", @post, method: :delete %>
   <% end %>
 </section>
 <section>

@@ -1,11 +1,11 @@
 <% title = "#{@posts.first.user.name}'s blog" %>
 <% content_for :title, title %>
 
-<h2 class="font-bold">
+<h2>
   <%= link_to title, user_posts_path(@posts.first.user) %>
 </h2>
 <% if notice.present? %>
-  <p class="notice"><%= notice %></p>
+  <p><%= notice %></p>
 <% end %>
 <% @posts.each do |post| %>
   <section>
