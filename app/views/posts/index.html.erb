@@ -1,8 +1,8 @@
-<% title = "#{@posts.first.user.name}'s blog" %>
+<% title = "#{@user.name}'s blog" %>
 <% content_for :title, title %>
 
 <h2>
-  <%= link_to title, user_posts_path(@posts.first.user) %>
+  <%= link_to title, user_posts_path(@user) %>
 </h2>
 <% if notice.present? %>
   <p><%= notice %></p>

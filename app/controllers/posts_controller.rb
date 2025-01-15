@@ -3,9 +3,9 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    user = User.find(params[:user_id])
+    @user = User.find(params[:user_id])
     @page = Page.new(params: params, relation: Post)
-    @posts = user.posts.order(created_at: :desc).limit(20).offset(@page.offset)
+    @posts = @user.posts.order(created_at: :desc).limit(20).offset(@page.offset)
   end
 
   # GET /posts/1

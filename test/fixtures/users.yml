@@ -1,8 +1,8 @@
 willnet:
   name: willnet
   email_address: willnet@example.com
-  password_digest: password
+  password_digest: "$2a$12$u5CYzIJf0EBNbqd98P.CK.lM5DBTCThK.xWTomxByQbox.Lds0tBK" # password
 maeshima:
   name: maeshima
   email_address: maeshima@example.com
-  password_digest: password
+  password_digest: "$2a$12$u5CYzIJf0EBNbqd98P.CK.lM5DBTCThK.xWTomxByQbox.Lds0tBK" # password

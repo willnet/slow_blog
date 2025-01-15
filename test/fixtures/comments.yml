@@ -2,9 +2,9 @@
 
 one:
   post: one
-  body: MyText
+  body: this is a comment
   user: willnet
 two:
   post: two
-  body: MyText
+  body: that is also a comment
   user: maeshima
