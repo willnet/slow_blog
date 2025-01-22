@@ -4,7 +4,7 @@ class PostsTest < ApplicationSystemTestCase
   test "visiting a blog entry and the blog title linked to the post is displayed" do
     visit root_path
     click_on "Hello World!"
-    assert_selector "h2", text: "Slow Blog"
+    assert_selector "h2", text: "willnet's blog"
   end
 
   test "visiting my blog entry and edit and destroy button are displayed" do
