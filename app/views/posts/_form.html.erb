@@ -1,0 +1,27 @@
+<%= form_with(model: post) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+
+  <%= form.label :body %>
+  <%= form.textarea :body %>
+
+  <%= form.label :status %>
+  <%= form.select :status, options_for_select(Post.statuses.map {|key, value| [key.humanize, key]}, post.status), { prompt: "Select status" } %>
+
+  <%= form.label :tag_names, "Tags (comma separated)" %>
+  <%= form.text_field :tag_names, value: post.tags.pluck(:name).join(", "), placeholder: "tag1, tag2, tag3" %>
+
+  <%= form.submit %>
+<% end %>

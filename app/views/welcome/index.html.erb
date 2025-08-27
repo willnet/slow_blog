@@ -1,0 +1,31 @@
+<div>
+  <% if @popular_tags.any? %>
+    <section>
+      <h2>Popular Tags</h2>
+      <div>
+        <% @popular_tags.each do |tag| %>
+          <%= link_to searches_path(tag: tag.name), style: "margin-right: 10px; padding: 3px 8px; background-color: #f0f0f0; border-radius: 3px; text-decoration: none; color: inherit;" do %>
+            <%= tag.name %>
+          <% end %>
+        <% end %>
+      </div>
+    </section>
+  <% end %>
+
+  <% if @posts.count.zero? %>
+    <p>No posts found.</p>
+  <% end %>
+  <% @posts.each do |post| %>
+    <article>
+      <%= render partial: post, locals: { short: true } %>
+      <footer>
+        <details>
+          <summary>Comments (<%= post.comments.count %>)</summary>
+          <%= render post.comments %>
+        </details>
+      </footer>
+    </article>
+  <% end %>
+
+  <%= render 'posts/paging', page: @page %>
+</div>

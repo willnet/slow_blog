@@ -1,0 +1,29 @@
+<% content_for :header_text, link_to("#{@post.user.name}'s blog", user_posts_path(@post.user)) %>
+
+<h1><%= link_to "#{@post.user.name}'s blog", user_posts_path(@post.user) %></h1>
+
+<% if notice.present? %>
+  <p><%= notice %></p>
+<% end %>
+<% if alert.present? %>
+  <p><%= alert %></p>
+<% end %>
+<article>
+  <%= render @post %>
+  <% if @post.created_by?(Current.user) %>
+    <%= button_to "Edit this post", edit_post_path(@post), method: :get %>
+  <% end %>
+  <% if @post.created_by?(Current.user) %>
+    <%= button_to "Destroy this post", @post, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+  <% end %>
+  <footer>
+    <h3>Comments</h3>
+    <% @post.comments.each do |comment| %>
+      <%= render comment %>
+    <% end %>
+    <h3>New Comment</h3>
+    <%= render "comments/form", post: @post, comment: Comment.new %>
+  </footer>
+</article>
+
+

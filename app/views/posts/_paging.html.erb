@@ -1,0 +1,9 @@
+<%# locals: (page:, additional_params: {}) %>
+<div>
+  <% if page.prev_page %>
+    <%= link_to "Prev Page", url_for(additional_params.merge(page: page.prev_page)) %>
+  <% end %>
+  <% if page.next_page %>
+    <%= link_to "Next Page", url_for(additional_params.merge(page: page.next_page)) %>
+  <% end %>
+</div>

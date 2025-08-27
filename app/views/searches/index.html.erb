@@ -1,0 +1,29 @@
+<div>
+  <% if @tag %>
+    <section>
+      <h2>Posts tagged with "<%= @tag.name %>"</h2>
+    </section>
+  <% else %>
+    <section>
+      <h2>Tag not found</h2>
+      <p>The requested tag does not exist.</p>
+    </section>
+  <% end %>
+
+  <% if @posts.count.zero? %>
+    <p>No posts found.</p>
+  <% end %>
+  <% @posts.each do |post| %>
+    <article>
+      <%= render partial: post, locals: { short: true } %>
+      <footer>
+        <details>
+          <summary>Comments (<%= post.comments.count %>)</summary>
+          <%= render post.comments %>
+        </details>
+      </footer>
+    </article>
+  <% end %>
+
+  <%= render 'posts/paging', page: @page, additional_params: { tag: params[:tag] } %>
+</div>

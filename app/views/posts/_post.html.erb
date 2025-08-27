@@ -1,0 +1,23 @@
+<%# locals: (post:, short: false) %>
+
+<section id="<%= dom_id post %>">
+  <h2>
+    <%= link_to post.title, post %>
+    <% if post.unpublished? %>
+      <span style="background-color: #ffcc00; color: #333; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; margin-left: 10px;">非公開</span>
+    <% end %>
+  </h2>
+  <% if short %>
+    <p><%= truncate(post.body, length: 200) %></p>
+  <% else%>
+    <p><%= simple_format(post.body) %></p>
+  <% end%>
+  
+  <% if post.tags.any? %>
+    <div style="margin-top: 10px;">
+      <% post.tags.each do |tag| %>
+        <span style="background-color: #007bff; color: white; padding: 3px 8px; border-radius: 12px; font-size: 0.8em; margin-right: 5px; display: inline-block;"><%= tag.name %></span>
+      <% end %>
+    </div>
+  <% end %>
+</section>

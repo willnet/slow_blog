@@ -1,0 +1,63 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: Hello World!
+  body: It's my first post.
+  user: willnet
+  status: published
+  view_count: 100
+
+two:
+  title: MyString
+  body: MyText
+  user: maeshima
+  view_count: 50
+
+three:
+  title: Secret Post
+  body: This is a secret post.
+  user: willnet
+  status: unpublished
+  view_count: 0
+
+four:
+  title: Post 4
+  body: Content for post 4
+  user: willnet
+  status: published
+  view_count: 40
+
+five:
+  title: Post 5
+  body: Content for post 5
+  user: willnet
+  status: published
+  view_count: 35
+
+six:
+  title: Post 6
+  body: Content for post 6
+  user: willnet
+  status: published
+  view_count: 30
+
+seven:
+  title: Post 7
+  body: Content for post 7
+  user: willnet
+  status: published
+  view_count: 25
+
+eight:
+  title: Post 8
+  body: Content for post 8
+  user: willnet
+  status: published
+  view_count: 20
+
+nine:
+  title: Post 9
+  body: Content for post 9
+  user: willnet
+  status: published
+  view_count: 15

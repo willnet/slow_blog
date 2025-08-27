@@ -1,0 +1,43 @@
+<% title = "#{@user.name}'s blog" %>
+<% content_for :title, title %>
+<% content_for :header_text, link_to(title, user_posts_path(@user)) %>
+
+<h1><%= title %></h1>
+
+<% if notice.present? %>
+  <p><%= notice %></p>
+<% end %>
+
+<div>
+  <% if @all_user_tags.any? %>
+    <section>
+      <label for="tag_filter">Filter by tag:</label>
+      <%= form_with url: user_posts_path(@user), method: :get, local: true do |form| %>
+        <%= form.select :tag_id, 
+            options_from_collection_for_select(@all_user_tags, :id, :name, params[:tag_id]), 
+            { prompt: "All posts" },
+            { onchange: "this.form.submit();" } %>
+      <% end %>
+    </section>
+  <% end %>
+
+  <% if @posts.count.zero? %>
+    <p>No posts found.</p>
+  <% end %>
+
+  <% @posts.each do |post| %>
+    <article>
+      <%= render partial: post, locals: { short: true } %>
+      <footer>
+        <details>
+          <summary>Comments (<%= post.comments.count %>)</summary>
+          <%= render post.comments %>
+        </details>
+      </footer>
+    </article>
+  <% end %>
+
+  <%= render 'posts/paging', page: @page %>
+</div>
+
+
