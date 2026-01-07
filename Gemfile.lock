@@ -150,8 +150,7 @@ GEM
     mime-types-data (3.2025.0826)
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
-    minitest (6.0.1)
-      prism (~> 1.5)
+    minitest (5.27.0)
     msgpack (1.8.0)
     net-imap (0.6.0)
       date
@@ -321,7 +320,7 @@ GEM
       concurrent-ruby (~> 1.0)
     unicode-display_width (3.1.5)
       unicode-emoji (~> 4.0, >= 4.0.4)
-    unicode-emoji (4.0.4)
+    unicode-emoji (4.2.0)
     uri (1.1.1)
     useragent (0.16.11)
     websocket-driver (0.8.0)
@@ -357,6 +356,7 @@ DEPENDENCIES
   ci_logger
   debug
   importmap-rails
+  minitest (< 6)
   propshaft
   puma (>= 5.0)
   rails (~> 8.1.1)
@@ -369,4 +369,4 @@ DEPENDENCIES
   turbo-rails
 
 BUNDLED WITH
-   2.6.3
+  4.0.3
