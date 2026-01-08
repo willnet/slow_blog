@@ -150,7 +150,8 @@ GEM
     mime-types-data (3.2025.0826)
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
-    minitest (5.27.0)
+    minitest (6.0.1)
+      prism (~> 1.5)
     msgpack (1.8.0)
     net-imap (0.6.0)
       date
@@ -356,7 +357,7 @@ DEPENDENCIES
   ci_logger
   debug
   importmap-rails
-  minitest (< 6)
+  minitest (< 7)
   propshaft
   puma (>= 5.0)
   rails (~> 8.1.1)
