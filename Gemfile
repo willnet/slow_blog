@@ -27,5 +27,5 @@ group :test do
   gem "capybara"
   gem "ci_logger"
   gem "capybara-playwright-driver"
-  gem "minitest", "< 6"
+  gem "minitest", "< 7"
 end
