@@ -5,7 +5,8 @@ Capybara.default_max_wait_time = 5
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   driven_by :playwright, using: :chromium, screen_size: [ 1400, 1400 ], options: {
-    headless: true
+    headless: true,
+    playwright_cli_executable_path: Rails.root.join("bin/playwright").to_s
   }
 
   def sign_in(email: "willnet@example.com", password: "password")
