@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require "bundler/setup"
+require "playwright/version"
+
+exec "npx", "--yes", "playwright@#{Playwright::COMPATIBLE_PLAYWRIGHT_VERSION}", *ARGV

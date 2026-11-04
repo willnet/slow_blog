@@ -55,6 +55,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     # services:
     #  redis:
@@ -76,7 +77,7 @@ jobs:
           bundler-cache: true
 
       - name: Install Playwright browsers
-        run: npx playwright install --with-deps chromium
+        run: bin/playwright install --with-deps chromium
 
       - name: Run tests
         env:
